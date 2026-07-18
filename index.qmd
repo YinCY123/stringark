@@ -1,0 +1,103 @@
+---
+title: "生命科学笔记"
+subtitle: "探索生物奥秘 · 记录科学足迹"
+page-layout: custom
+---
+
+::: {.hero-section}
+::: {.hero-pattern}
+::: {.hero-content}
+# 生命科学笔记 {.display-4}
+
+> "生命不是由你拥有的东西衡量，而是由你给予的东西衡量。"
+> —— 查尔斯·达尔文
+
+一个关于**生物学**、**计算生物学**与**科学探索**的个人知识库。
+在这里，我们探讨从 DNA 双螺旋到 Linux 终端的奇妙世界。
+
+[探索科普文章](/posts.qmd){.btn .btn-primary .btn-lg .me-2}
+[查看技术笔记](/linux.qmd){.btn .btn-outline-primary .btn-lg}
+:::
+:::
+:::
+
+::: {.intro-section}
+::: {.intro-grid}
+::: {.intro-card .bio-card}
+### DNA 生物科普
+
+从分子生物学到生态系统，用通俗易懂的语言解读生命科学的最新发现。
+
+- 分子生物学
+- 进化与遗传
+- 生态与行为
+- 神经科学
+
+[浏览文章](/posts.qmd){.btn .btn-sm .btn-bio}
+:::
+
+::: {.intro-card .tech-card}
+### 计算机 技术笔记
+
+记录生物信息学工作中的工具使用、编程技巧和数据分析方法。
+
+- Linux 系统与命令行
+- R 语言统计与可视化
+- C++ 高性能计算
+- 生物信息学工具
+
+[查看笔记](/linux.qmd){.btn .btn-sm .btn-tech}
+:::
+:::
+:::
+
+::: {.featured-section}
+## 精选文章
+
+::: {.featured-grid}
+::: {.featured-article}
+#### 基因编辑 CRISPR：生命的剪刀
+
+CRISPR-Cas9 技术如何革命性地改变了我们对基因的理解和操作？
+
+[阅读全文](/posts/first-post.qmd){.read-more}
+:::
+
+::: {.featured-article}
+#### 加拉帕戈斯群岛的启示
+
+达尔文在加拉帕戈斯群岛的观察如何催生了进化论的萌芽？
+
+[阅读全文](/posts/second-post.qmd){.read-more}
+:::
+
+::: {.featured-article}
+#### 大脑的神经网络
+
+从神经元到神经网络，探索大脑如何处理信息和学习新技能。
+
+[阅读全文](/posts/first-post.qmd){.read-more}
+:::
+:::
+:::
+
+::: {.stats-section}
+::: {.stats-grid}
+::: {.stat-item}
+### 50+
+科普文章
+:::
+::: {.stat-item}
+### 30+
+技术教程
+:::
+::: {.stat-item}
+### 1000+
+读者关注
+:::
+::: {.stat-item}
+### 365
+天持续更新
+:::
+:::
+:::

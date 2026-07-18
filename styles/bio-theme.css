@@ -1,0 +1,94 @@
+/* 额外的生物主题样式 */
+
+.page-columns {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quarto-listing-grid .quarto-grid-item {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(27, 67, 50, 0.06);
+  border: 1px solid #E8F5E9;
+  transition: all 0.3s ease;
+}
+
+.quarto-listing-grid .quarto-grid-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(27, 67, 50, 0.1);
+}
+
+.quarto-listing-grid .listing-title {
+  font-family: "Noto Serif SC", serif;
+  color: #1B4332;
+  font-weight: 700;
+}
+
+.quarto-listing-grid .listing-description {
+  color: #52796F;
+}
+
+.quarto-listing-grid .listing-category {
+  background: #E8F5E9;
+  color: #2D6A4F;
+  border-radius: 1rem;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+#toc-title {
+  font-family: "Noto Serif SC", serif;
+  color: #1B4332;
+  font-weight: 700;
+}
+
+#TOC a {
+  color: #52796F;
+  transition: color 0.2s ease;
+}
+
+#TOC a:hover {
+  color: #2D6A4F;
+}
+
+.aa-Autocomplete .aa-Form {
+  border-radius: 2rem;
+  border: 1px solid #B7E4C7;
+}
+
+.page-link {
+  color: #2D6A4F;
+  border-color: #B7E4C7;
+}
+
+.page-link:hover {
+  background: #E8F5E9;
+  color: #1B4332;
+}
+
+.page-item.active .page-link {
+  background: #2D6A4F;
+  border-color: #2D6A4F;
+}
+
+@media print {
+  .navbar, .footer, .sidebar {
+    display: none !important;
+  }
+
+  .hero-section {
+    background: white !important;
+    color: black !important;
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .hero-content h1 {
+    color: black !important;
+    text-shadow: none;
+  }
+}

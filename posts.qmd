@@ -1,0 +1,25 @@
+---
+title: "生物科普"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  grid-columns: 2
+  image-height: 220px
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, title, description, date, reading-time, categories]
+page-layout: full
+title-block-banner: true
+---
+
+欢迎来到生物科普专栏！这里汇集了关于生命科学各个领域的文章，从微观世界到宏观生态，带你探索生命的奥秘。
+
+::: {.category-tags}
+[分子生物学](#){.tag}
+[进化论](#){.tag}
+[生态学](#){.tag}
+[神经科学](#){.tag}
+[生物技术](#){.tag}
+:::

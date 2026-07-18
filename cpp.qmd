@@ -1,0 +1,168 @@
+---
+title: "C++ 编程笔记"
+---
+
+::: {.tech-hero .cpp-hero}
+## C++ 高性能生物计算
+
+当 Python 和 R 的速度成为瓶颈时，C++ 是生物信息学高性能计算的首选。这里记录了我在序列分析、算法实现中的 C++ 经验。
+:::
+
+## 基础：序列处理
+
+::: {.cpp-section}
+### FASTA 文件解析器
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+struct Sequence {
+    std::string header;
+    std::string sequence;
+};
+
+class FastaReader {
+public:
+    std::vector<Sequence> read(const std::string& filename) {
+        std::vector<Sequence> sequences;
+        std::ifstream file(filename);
+        std::string line, current_seq, current_header;
+
+        while (std::getline(file, line)) {
+            if (line.empty()) continue;
+
+            if (line[0] == '>') {
+                if (!current_header.empty()) {
+                    sequences.push_back({current_header, current_seq});
+                }
+                current_header = line.substr(1);
+                current_seq.clear();
+            } else {
+                current_seq += line;
+            }
+        }
+
+        if (!current_header.empty()) {
+            sequences.push_back({current_header, current_seq});
+        }
+
+        return sequences;
+    }
+};
+
+int main() {
+    FastaReader reader;
+    auto seqs = reader.read("sequences.fa");
+    std::cout << "Loaded " << seqs.size() << " sequences\n";
+    return 0;
+}
+```
+:::
+
+## 进阶：序列比对算法
+
+::: {.cpp-section}
+### Smith-Waterman 局部比对
+
+```cpp
+#include <vector>
+#include <algorithm>
+
+class SmithWaterman {
+    static constexpr int MATCH = 2;
+    static constexpr int MISMATCH = -1;
+    static constexpr int GAP = -2;
+
+public:
+    struct Result {
+        int score;
+        std::string aligned_seq1;
+        std::string aligned_seq2;
+    };
+
+    Result align(const std::string& seq1, const std::string& seq2) {
+        int m = seq1.length(), n = seq2.length();
+        std::vector<std::vector<int>> H(m + 1, 
+            std::vector<int>(n + 1, 0));
+
+        int max_score = 0;
+        int max_i = 0, max_j = 0;
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                int match = H[i-1][j-1] + 
+                    (seq1[i-1] == seq2[j-1] ? MATCH : MISMATCH);
+                int delete_gap = H[i-1][j] + GAP;
+                int insert_gap = H[i][j-1] + GAP;
+
+                H[i][j] = std::max({0, match, delete_gap, insert_gap});
+
+                if (H[i][j] > max_score) {
+                    max_score = H[i][j];
+                    max_i = i;
+                    max_j = j;
+                }
+            }
+        }
+
+        return {max_score, "", ""};
+    }
+};
+```
+:::
+
+## 性能优化技巧
+
+::: {.tip-grid}
+::: {.tip-card}
+#### 使用 reserve() 预分配内存
+
+```cpp
+std::vector<int> kmers;
+kmers.reserve(1000000);  // 避免多次重新分配
+```
+:::
+
+::: {.tip-card}
+#### 使用 string_view 避免拷贝
+
+```cpp
+#include <string_view>
+
+// 零拷贝子串操作
+std::string_view kmer(seq.data() + i, k);
+```
+:::
+
+::: {.tip-card}
+#### 并行处理（OpenMP）
+
+```cpp
+#pragma omp parallel for
+for (int i = 0; i < n_reads; i++) {
+    process_read(reads[i]);
+}
+```
+:::
+:::
+
+## 编译与运行
+
+```bash
+# 基础编译
+g++ -O3 -std=c++17 sequence_tool.cpp -o sequence_tool
+
+# 启用 OpenMP 并行
+g++ -O3 -fopenmp -std=c++17 parallel_tool.cpp -o parallel_tool
+
+# 调试模式
+g++ -g -O0 -std=c++17 debug.cpp -o debug
+```
+
+::: {.text-center .mt-4}
+[查看 Linux 笔记](/linux.qmd){.btn .btn-outline-primary .me-2}
+[查看 R 语言笔记](/r-lang.qmd){.btn .btn-outline-primary}
+:::

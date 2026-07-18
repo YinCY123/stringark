@@ -1,0 +1,115 @@
+---
+title: "Linux 技术笔记"
+---
+
+::: {.tech-hero .linux-hero}
+## Linux 生物信息学工作流
+
+Linux 是生物信息学工作的核心操作系统。这里记录了我在日常科研中常用的命令、脚本和最佳实践。
+:::
+
+## 基础命令速查
+
+::: {.cheatsheet}
+### 文件操作
+
+```bash
+# 查看文件内容（大文件用 less）
+less genome.fa
+head -n 20 data.txt    # 前20行
+tail -n 20 data.txt    # 后20行
+wc -l reads.fastq      # 统计行数
+
+# 文件搜索
+find . -name "*.fastq"          # 按名称查找
+grep "ATCG" sequence.fa         # 文本搜索
+grep -c ">" genes.fa             # 统计序列条数
+```
+
+### 序列数据处理
+
+```bash
+# FASTQ 质量统计
+fastqc sample_R1.fastq sample_R2.fastq
+
+# 序列比对
+bowtie2 -x genome_index -1 reads_R1.fastq -2 reads_R2.fastq -S output.sam
+
+# BAM 文件处理
+samtools view -bS input.sam > output.bam
+samtools sort output.bam -o sorted.bam
+samtools index sorted.bam
+```
+
+### 批量处理脚本
+
+```bash
+#!/bin/bash
+# 批量运行 FastQC
+for file in *.fastq; do
+    echo "Processing $file..."
+    fastqc "$file" -o ./fastqc_results/
+done
+echo "All done!"
+```
+:::
+
+## 环境管理
+
+::: {.tip-box}
+#### 使用 Conda 管理生物信息学工具
+
+```bash
+# 创建生物信息学环境
+conda create -n bioinfo python=3.10
+conda activate bioinfo
+
+# 安装常用工具
+conda install -c bioconda samtools bwa bowtie2
+conda install -c bioconda fastqc trimmomatic
+```
+:::
+
+## 实用脚本
+
+::: {.script-grid}
+::: {.script-card}
+#### 自动下载参考基因组
+
+```bash
+#!/bin/bash
+ORGANISM="Homo_sapiens"
+BUILD="GRCh38"
+URL="ftp://ftp.ensembl.org/pub/current_fasta/${ORGANISM,,}/dna/"
+
+wget -r -np -nH --cut-dirs=4   -P ./reference/   -A "*.dna.primary_assembly.fa.gz"   "$URL"
+```
+:::
+
+::: {.script-card}
+#### 批量重命名测序文件
+
+```bash
+#!/bin/bash
+# 将 SRA 下载的文件重命名为样本名
+for old in SRR*.fastq; do
+    sample=$(grep "$old" sample_map.txt | cut -f2)
+    mv "$old" "${sample}.fastq"
+done
+```
+:::
+:::
+
+## 性能优化
+
+| 技巧 | 说明 |
+|------|------|
+| 使用 pigz 替代 gzip | 多线程压缩，速度提升 4-8 倍 |
+| parallel 命令 | 并行处理多个文件 |
+| tmux 会话 | 后台运行长时间任务 |
+| rsync 替代 scp | 断点续传，增量传输 |
+
+::: {.text-center .mt-4}
+[查看 R 语言笔记](/r-lang.qmd){.btn .btn-primary .me-2}
+[查看 C++ 笔记](/cpp.qmd){.btn .btn-outline-primary}
+:::
