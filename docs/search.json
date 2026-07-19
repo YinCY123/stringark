@@ -62,8 +62,7 @@
     "section": "",
     "text": "Linux 是生物信息学工作的核心操作系统。这里记录了我在日常科研中常用的命令、脚本和最佳实践。",
     "crumbs": [
-      "Linux",
-      "Linux 基础"
+      "Linux"
     ]
   },
   {
@@ -73,8 +72,7 @@
     "section": "",
     "text": "Linux 是生物信息学工作的核心操作系统。这里记录了我在日常科研中常用的命令、脚本和最佳实践。",
     "crumbs": [
-      "Linux",
-      "Linux 基础"
+      "Linux"
     ]
   },
   {
@@ -84,8 +82,7 @@
     "section": "基础命令速查",
     "text": "基础命令速查\n\n\n文件操作\n# 查看文件内容（大文件用 less）\nless genome.fa\nhead -n 20 data.txt    # 前20行\ntail -n 20 data.txt    # 后20行\nwc -l reads.fastq      # 统计行数\n\n# 文件搜索\nfind . -name \"*.fastq\"          # 按名称查找\ngrep \"ATCG\" sequence.fa         # 文本搜索\ngrep -c \"&gt;\" genes.fa             # 统计序列条数\n\n\n序列数据处理\n# FASTQ 质量统计\nfastqc sample_R1.fastq sample_R2.fastq\n\n# 序列比对\nbowtie2 -x genome_index -1 reads_R1.fastq -2 reads_R2.fastq -S output.sam\n\n# BAM 文件处理\nsamtools view -bS input.sam &gt; output.bam\nsamtools sort output.bam -o sorted.bam\nsamtools index sorted.bam\n\n\n批量处理脚本\n#!/bin/bash\n# 批量运行 FastQC\nfor file in *.fastq; do\n    echo \"Processing $file...\"\n    fastqc \"$file\" -o ./fastqc_results/\ndone\necho \"All done!\"",
     "crumbs": [
-      "Linux",
-      "Linux 基础"
+      "Linux"
     ]
   },
   {
@@ -95,8 +92,7 @@
     "section": "环境管理",
     "text": "环境管理\n\n使用 Conda 管理生物信息学工具\n# 创建生物信息学环境\nconda create -n bioinfo python=3.10\nconda activate bioinfo\n\n# 安装常用工具\nconda install -c bioconda samtools bwa bowtie2\nconda install -c bioconda fastqc trimmomatic",
     "crumbs": [
-      "Linux",
-      "Linux 基础"
+      "Linux"
     ]
   },
   {
@@ -106,8 +102,7 @@
     "section": "实用脚本",
     "text": "实用脚本\n\n\n自动下载参考基因组\n#!/bin/bash\nORGANISM=\"Homo_sapiens\"\nBUILD=\"GRCh38\"\nURL=\"ftp://ftp.ensembl.org/pub/current_fasta/${ORGANISM,,}/dna/\"\n\nwget -r -np -nH --cut-dirs=4   -P ./reference/   -A \"*.dna.primary_assembly.fa.gz\"   \"$URL\"\n\n\n批量重命名测序文件\n#!/bin/bash\n# 将 SRA 下载的文件重命名为样本名\nfor old in SRR*.fastq; do\n    sample=$(grep \"$old\" sample_map.txt | cut -f2)\n    mv \"$old\" \"${sample}.fastq\"\ndone",
     "crumbs": [
-      "Linux",
-      "Linux 基础"
+      "Linux"
     ]
   },
   {
@@ -117,8 +112,7 @@
     "section": "性能优化",
     "text": "性能优化\n\n\n\n技巧\n说明\n\n\n\n\n使用 pigz 替代 gzip\n多线程压缩，速度提升 4-8 倍\n\n\nparallel 命令\n并行处理多个文件\n\n\ntmux 会话\n后台运行长时间任务\n\n\nrsync 替代 scp\n断点续传，增量传输\n\n\n\n\n查看 R 语言笔记 查看 C++ 笔记",
     "crumbs": [
-      "Linux",
-      "Linux 基础"
+      "Linux"
     ]
   },
   {
@@ -170,6 +164,7 @@
     "section": "",
     "text": "欢迎来到生物科普专栏！这里汇集了关于生命科学各个领域的文章，从微观世界到宏观生态，带你探索生命的奥秘。\n\n分子生物学 进化论 生态学 神经科学 生物技术\n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCRISPR-Cas9：基因编辑的革命\n\n2 min\n\n\n分子生物学\n\n基因编辑\n\n生物技术\n\n\n\n从细菌的免疫系统到改变生命的工具，CRISPR 技术如何开启了基因编辑的新时代。\n\n\n\nJul 18, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n加拉帕戈斯群岛：进化论的摇篮\n\n1 min\n\n\n进化论\n\n生态学\n\n自然历史\n\n\n\n探索达尔文在加拉帕戈斯群岛的发现，以及这些孤立的岛屿如何成为理解自然选择的最佳课堂。\n\n\n\nJul 10, 2026\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
+      "生物学",
       "生物科普"
     ]
   },
@@ -181,7 +176,7 @@
     "text": "当 Python 和 R 的速度成为瓶颈时，C++ 是生物信息学高性能计算的首选。这里记录了我在序列分析、算法实现中的 C++ 经验。",
     "crumbs": [
       "Linux",
-      "C++ 编程"
+      "C++"
     ]
   },
   {
@@ -192,7 +187,7 @@
     "text": "当 Python 和 R 的速度成为瓶颈时，C++ 是生物信息学高性能计算的首选。这里记录了我在序列分析、算法实现中的 C++ 经验。",
     "crumbs": [
       "Linux",
-      "C++ 编程"
+      "C++"
     ]
   },
   {
@@ -203,7 +198,7 @@
     "text": "基础：序列处理\n\nFASTA 文件解析器\n#include &lt;iostream&gt;\n#include &lt;fstream&gt;\n#include &lt;string&gt;\n#include &lt;vector&gt;\n\nstruct Sequence {\n    std::string header;\n    std::string sequence;\n};\n\nclass FastaReader {\npublic:\n    std::vector&lt;Sequence&gt; read(const std::string& filename) {\n        std::vector&lt;Sequence&gt; sequences;\n        std::ifstream file(filename);\n        std::string line, current_seq, current_header;\n\n        while (std::getline(file, line)) {\n            if (line.empty()) continue;\n\n            if (line[0] == '&gt;') {\n                if (!current_header.empty()) {\n                    sequences.push_back({current_header, current_seq});\n                }\n                current_header = line.substr(1);\n                current_seq.clear();\n            } else {\n                current_seq += line;\n            }\n        }\n\n        if (!current_header.empty()) {\n            sequences.push_back({current_header, current_seq});\n        }\n\n        return sequences;\n    }\n};\n\nint main() {\n    FastaReader reader;\n    auto seqs = reader.read(\"sequences.fa\");\n    std::cout &lt;&lt; \"Loaded \" &lt;&lt; seqs.size() &lt;&lt; \" sequences\\n\";\n    return 0;\n}",
     "crumbs": [
       "Linux",
-      "C++ 编程"
+      "C++"
     ]
   },
   {
@@ -214,7 +209,7 @@
     "text": "进阶：序列比对算法\n\nSmith-Waterman 局部比对\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\n\nclass SmithWaterman {\n    static constexpr int MATCH = 2;\n    static constexpr int MISMATCH = -1;\n    static constexpr int GAP = -2;\n\npublic:\n    struct Result {\n        int score;\n        std::string aligned_seq1;\n        std::string aligned_seq2;\n    };\n\n    Result align(const std::string& seq1, const std::string& seq2) {\n        int m = seq1.length(), n = seq2.length();\n        std::vector&lt;std::vector&lt;int&gt;&gt; H(m + 1, \n            std::vector&lt;int&gt;(n + 1, 0));\n\n        int max_score = 0;\n        int max_i = 0, max_j = 0;\n\n        for (int i = 1; i &lt;= m; i++) {\n            for (int j = 1; j &lt;= n; j++) {\n                int match = H[i-1][j-1] + \n                    (seq1[i-1] == seq2[j-1] ? MATCH : MISMATCH);\n                int delete_gap = H[i-1][j] + GAP;\n                int insert_gap = H[i][j-1] + GAP;\n\n                H[i][j] = std::max({0, match, delete_gap, insert_gap});\n\n                if (H[i][j] &gt; max_score) {\n                    max_score = H[i][j];\n                    max_i = i;\n                    max_j = j;\n                }\n            }\n        }\n\n        return {max_score, \"\", \"\"};\n    }\n};",
     "crumbs": [
       "Linux",
-      "C++ 编程"
+      "C++"
     ]
   },
   {
@@ -225,7 +220,7 @@
     "text": "性能优化技巧\n\n\n使用 reserve() 预分配内存\nstd::vector&lt;int&gt; kmers;\nkmers.reserve(1000000);  // 避免多次重新分配\n\n\n使用 string_view 避免拷贝\n#include &lt;string_view&gt;\n\n// 零拷贝子串操作\nstd::string_view kmer(seq.data() + i, k);\n\n\n并行处理（OpenMP）\n#pragma omp parallel for\nfor (int i = 0; i &lt; n_reads; i++) {\n    process_read(reads[i]);\n}",
     "crumbs": [
       "Linux",
-      "C++ 编程"
+      "C++"
     ]
   },
   {
@@ -236,7 +231,7 @@
     "text": "编译与运行\n# 基础编译\ng++ -O3 -std=c++17 sequence_tool.cpp -o sequence_tool\n\n# 启用 OpenMP 并行\ng++ -O3 -fopenmp -std=c++17 parallel_tool.cpp -o parallel_tool\n\n# 调试模式\ng++ -g -O0 -std=c++17 debug.cpp -o debug\n\n查看 Linux 笔记 查看 R 语言笔记",
     "crumbs": [
       "Linux",
-      "C++ 编程"
+      "C++"
     ]
   },
   {
@@ -254,7 +249,7 @@
     "text": "R 语言是生物统计和可视化的利器。从 ggplot2 到 Bioconductor，R 生态系统为生命科学数据提供了强大的分析工具。",
     "crumbs": [
       "Linux",
-      "R 语言数据分析"
+      "R 语言"
     ]
   },
   {
@@ -265,7 +260,7 @@
     "text": "R 语言是生物统计和可视化的利器。从 ggplot2 到 Bioconductor，R 生态系统为生命科学数据提供了强大的分析工具。",
     "crumbs": [
       "Linux",
-      "R 语言数据分析"
+      "R 语言"
     ]
   },
   {
@@ -276,7 +271,7 @@
     "text": "快速入门\n\n\n安装与配置\n# 安装 Bioconductor\nif (!require(\"BiocManager\", quietly = TRUE))\n    install.packages(\"BiocManager\")\nBiocManager::install()\n\n# 安装常用生物信息学包\nBiocManager::install(c(\"DESeq2\", \"edgeR\", \"limma\", \n                        \"GenomicRanges\", \"Biostrings\"))\n\n\n读取生物数据\nlibrary(Biostrings)\n\n# 读取 FASTA 文件\nseqs &lt;- readDNAStringSet(\"sequences.fa\")\nseqs[1:3]  # 查看前3条序列\n\n# 序列统计\nalphabetFrequency(seqs)\nletterFrequency(seqs, letters = \"GC\")  # GC含量",
     "crumbs": [
       "Linux",
-      "R 语言数据分析"
+      "R 语言"
     ]
   },
   {
@@ -287,7 +282,7 @@
     "text": "RNA-seq 差异表达分析\n\n\nDESeq2 分析流程\nlibrary(DESeq2)\n\n# 读取计数矩阵\ncountData &lt;- read.csv(\"counts.csv\", row.names = 1)\ncolData &lt;- read.csv(\"sample_info.csv\", row.names = 1)\n\n# 创建 DESeqDataSet\ndds &lt;- DESeqDataSetFromMatrix(\n    countData = countData,\n    colData = colData,\n    design = ~ condition\n)\n\n# 过滤低表达基因\ndds &lt;- dds[rowSums(counts(dds)) &gt;= 10, ]\n\n# 运行差异分析\ndds &lt;- DESeq(dds)\nres &lt;- results(dds)\n\n# 查看结果\nhead(res[order(res$padj), ])\n\n\n可视化\nlibrary(ggplot2)\n\n# MA 图\nplotMA(res, main = \"MA Plot\", ylim = c(-5, 5))\n\n# 火山图\nres_df &lt;- as.data.frame(res)\nres_df$significant &lt;- res_df$padj &lt; 0.05 & abs(res_df$log2FoldChange) &gt; 1\n\nggplot(res_df, aes(x = log2FoldChange, y = -log10(padj))) +\n    geom_point(aes(color = significant), alpha = 0.6) +\n    scale_color_manual(values = c(\"grey\", \"#E74C3C\")) +\n    theme_minimal() +\n    labs(title = \"Volcano Plot\",\n         x = \"log2 Fold Change\",\n         y = \"-log10 adjusted p-value\")",
     "crumbs": [
       "Linux",
-      "R 语言数据分析"
+      "R 语言"
     ]
   },
   {
@@ -298,7 +293,7 @@
     "text": "常用可视化\n\n\n热图\nlibrary(pheatmap)\n\n# 选择差异表达基因\ntop_genes &lt;- head(order(res$padj), 50)\nmat &lt;- assay(dds)[top_genes, ]\nmat &lt;- t(scale(t(mat)))  # 标准化\n\npheatmap(mat, \n         clustering_distance_rows = \"correlation\",\n         main = \"Differential Expression Heatmap\")\n\n\nPCA 分析\n# 方差稳定转换\nvsd &lt;- vst(dds)\n\n# PCA 图\nplotPCA(vsd, intgroup = \"condition\") +\n    theme_minimal() +\n    ggtitle(\"PCA of RNA-seq Samples\")",
     "crumbs": [
       "Linux",
-      "R 语言数据分析"
+      "R 语言"
     ]
   },
   {
@@ -309,7 +304,7 @@
     "text": "实用函数库\n\n自定义函数：快速绘制基因表达\nplot_gene_expression &lt;- function(dds, gene_id) {\n    gene_counts &lt;- plotCounts(dds, gene = gene_id, \n                              intgroup = \"condition\",\n                              returnData = TRUE)\n    ggplot(gene_counts, aes(x = condition, y = count)) +\n        geom_boxplot() +\n        geom_jitter(width = 0.2, alpha = 0.5) +\n        scale_y_log10() +\n        theme_minimal() +\n        labs(title = paste(\"Expression of\", gene_id))\n}\n\n# 使用\nplot_gene_expression(dds, \"ENSG00000141510\")\n\n\n查看 Linux 笔记 查看 C++ 笔记",
     "crumbs": [
       "Linux",
-      "R 语言数据分析"
+      "R 语言"
     ]
   },
   {

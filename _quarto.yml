@@ -11,9 +11,8 @@ website:
     left:
       - text: "首页"
         href: index.qmd
-      - text: "生物科普"
+      - text: "生物学"
         href: posts.qmd
-      - text: "技术笔记"
       - text: "Linux"
         href: linux.qmd
       - text: "R 语言"
@@ -35,7 +34,7 @@ website:
       - icon: github
         href: https://github.com
   sidebar:
-    - title: "生物科普"
+    - title: "生物学"
       style: "docked"
       background: "#F0F7F4"
       contents:
@@ -44,9 +43,9 @@ website:
           contents:
             - text: "分子生物学"
               href: "#"
-            - text: "进化论"
+            - text: "免疫学"
               href: "#"
-            - text: "生态学"
+            - text: "肿瘤生物学"
               href: "#"
             - text: "神经科学"
               href: "#"
@@ -54,11 +53,11 @@ website:
       style: "docked"
       background: "#F0F7F4"
       contents:
-        - text: "Linux 基础"
+        - text: "Linux"
           href: linux.qmd
-        - text: "R 语言数据分析"
+        - text: "R 语言"
           href: r-lang.qmd
-        - text: "C++ 编程"
+        - text: "C++"
           href: cpp.qmd
 
 format:
