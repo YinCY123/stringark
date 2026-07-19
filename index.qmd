@@ -1,5 +1,4 @@
 ---
-subtitle: "探索生物奥秘 · 记录科学足迹"
 page-layout: custom
 toc: false
 ---
