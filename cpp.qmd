@@ -10,10 +10,10 @@ title: "C++ 编程笔记"
 
 ## 基础：序列处理
 
-::: {.cpp-section}
+::: cpp-section
 ### FASTA 文件解析器
 
-```cpp
+``` cpp
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -64,10 +64,10 @@ int main() {
 
 ## 进阶：序列比对算法
 
-::: {.cpp-section}
+::: cpp-section
 ### Smith-Waterman 局部比对
 
-```cpp
+``` cpp
 #include <vector>
 #include <algorithm>
 
@@ -116,20 +116,20 @@ public:
 
 ## 性能优化技巧
 
-::: {.tip-grid}
-::: {.tip-card}
+:::::: tip-grid
+::: tip-card
 #### 使用 reserve() 预分配内存
 
-```cpp
+``` cpp
 std::vector<int> kmers;
 kmers.reserve(1000000);  // 避免多次重新分配
 ```
 :::
 
-::: {.tip-card}
+::: tip-card
 #### 使用 string_view 避免拷贝
 
-```cpp
+``` cpp
 #include <string_view>
 
 // 零拷贝子串操作
@@ -137,21 +137,21 @@ std::string_view kmer(seq.data() + i, k);
 ```
 :::
 
-::: {.tip-card}
+::: tip-card
 #### 并行处理（OpenMP）
 
-```cpp
+``` cpp
 #pragma omp parallel for
 for (int i = 0; i < n_reads; i++) {
     process_read(reads[i]);
 }
 ```
 :::
-:::
+::::::
 
 ## 编译与运行
 
-```bash
+``` bash
 # 基础编译
 g++ -O3 -std=c++17 sequence_tool.cpp -o sequence_tool
 
@@ -163,6 +163,5 @@ g++ -g -O0 -std=c++17 debug.cpp -o debug
 ```
 
 ::: {.text-center .mt-4}
-[查看 Linux 笔记](/linux.qmd){.btn .btn-outline-primary .me-2}
-[查看 R 语言笔记](/r-lang.qmd){.btn .btn-outline-primary}
+[查看 Linux 笔记](/linux.qmd){.btn .btn-outline-primary .me-2} [查看 R 语言笔记](/r-lang.qmd){.btn .btn-outline-primary}
 :::

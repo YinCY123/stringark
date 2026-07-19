@@ -7,7 +7,7 @@ page-layout: custom
 ::::: hero-section
 :::: hero-pattern
 ::: hero-content
-# 生命科学笔记 {.display-4}
+# 序列方舟 {.display-4}
 
 > "生命不是由你拥有的东西衡量，而是由你给予的东西衡量。" —— 查尔斯·达尔文
 
