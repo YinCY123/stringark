@@ -14,13 +14,12 @@ website:
       - text: "生物科普"
         href: posts.qmd
       - text: "技术笔记"
-        menu:
-          - text: "Linux"
-            href: linux.qmd
-          - text: "R 语言"
-            href: r-lang.qmd
-          - text: "C++"
-            href: cpp.qmd
+      - text: "Linux"
+        href: linux.qmd
+      - text: "R 语言"
+        href: r-lang.qmd
+      - text: "C++"
+        href: cpp.qmd
       - text: "关于"
         href: about.qmd
     right:
