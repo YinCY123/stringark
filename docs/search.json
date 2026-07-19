@@ -134,14 +134,14 @@
     "href": "about.html#我的背景",
     "title": "关于我",
     "section": "我的背景",
-    "text": "我的背景\n\n我拥有生物学背景，同时在生物信息学和计算生物学领域有多年实践经验。我的目标是用清晰、有趣的方式将复杂的科学概念传达给更多人。\n\n研究方向\n\n分子生物学 — DNA 复制、转录与翻译机制\n进化生物学 — 物种起源、自然选择与适应性进化\n生物信息学 — 基因组学数据分析、序列比对与注释\n计算生物学 — 算法在生物问题中的应用"
+    "text": "我的背景\n\n我拥有生物学背景，同时在生物信息学和计算生物学领域有多年实践经验。我的目标是用清晰、有趣的方式将复杂的科学概念传达给更多人。\n\n研究方向\n\n分子生物学 — DNA 复制、转录与翻译机制\n肿瘤生物学 — 皮间质转化、转移\n免疫学 — 免疫细胞激活、归巢机制\n进化生物学 — 物种起源、自然选择与适应性进化\n生物信息学 — 基因组学数据分析、序列比对与注释\n计算生物学 — 算法在生物问题中的应用"
   },
   {
     "objectID": "about.html#技能栈",
     "href": "about.html#技能栈",
     "title": "关于我",
     "section": "技能栈",
-    "text": "技能栈\n\n\n生物学\n\n分子克隆与基因工程\n细胞培养与显微技术\n蛋白质纯化与分析\n流式细胞术\n\n\n\n计算工具\n\nLinux 系统管理与 Shell 脚本\nR 语言统计分析与可视化\nPython 生物信息学编程\nC++ 高性能算法实现\n\n\n\n生物信息学\n\nNGS 数据分析（RNA-seq, ChIP-seq）\n基因组组装与注释\n系统发育分析\n蛋白质结构预测"
+    "text": "技能栈\n\n\n生物学\n\n分子克隆与基因工程\n细胞培养与显微技术\n蛋白质纯化与分析\n\n\n\n计算工具\n\nLinux 系统管理与 Shell 脚本\nR 语言统计分析与可视化\nC++ 高性能算法实现\ndocker 容器话运行脚本\nnextflow 脚本流程化\n\n\n\n生物信息学\n\nNGS 数据分析（RNA-seq, ChIP-seq, ATAC-seq, single cell RNA, Visium/HD, Xenium, MERFISSH, CosMx, CODEX, MALDE…）\n基因组组装与注释\n16S/ITS 和宏基因组\n系统发育分析\n蛋白质结构预测和功能注释"
   },
   {
     "objectID": "about.html#写作理念",
@@ -155,7 +155,7 @@
     "href": "about.html#联系方式",
     "title": "关于我",
     "section": "联系方式",
-    "text": "联系方式\n\n如果你有任何问题、建议或合作意向，欢迎联系我：\n\n邮箱: bio.explorer@example.com\nGitHub: github.com/bio-explorer\nTwitter: @BioExplorer\n知乎: 生命科学笔记\n\n\n\n返回首页"
+    "text": "联系方式\n\n如果你有任何问题、建议或合作意向，欢迎联系我：\n\n邮箱: shanghai_yrkj@163.com\n微信公众号: 序列方舟\n知乎: 序列方舟\nB 站: 序列方舟\n\n\n\n返回首页"
   },
   {
     "objectID": "posts.html",
