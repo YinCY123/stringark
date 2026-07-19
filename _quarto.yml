@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "生命科学笔记"
+  title: "序列方舟"
   description: "生物、计算与探索"
   navbar:
     background: "#1B4332"
